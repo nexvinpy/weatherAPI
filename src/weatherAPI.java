@@ -11,6 +11,11 @@ public class weatherAPI {
     private String apiKey;
     private String location;
 
+    private double temp;
+    private double feelsLike;
+    private int humidity;
+    private String description;
+
     public weatherAPI(String apiKey, String location) {
         this.apiKey = apiKey;
         this.location = location;
@@ -45,19 +50,37 @@ public class weatherAPI {
             JSONArray weatherArray = json.getJSONArray("weather");
             String description = weatherArray.getJSONObject(0).getString("description");
 
-            double temp = main.getDouble("temp");
-            double feelsLike = main.getDouble("feels_like");
-            int humidity = main.getInt("humidity");
+            this.temp = main.getDouble("temp");
+            this.feelsLike = main.getDouble("feels_like");
+            this.humidity = main.getInt("humidity");
+            this.description = weatherArray.getJSONObject(0).getString("description");
 
+            /*
             System.out.println("Temperatur: " + temp + " °C");
             System.out.println("Gefühlt: " + feelsLike + " °C");
             System.out.println("Luftfeuchtigkeit: " + humidity + " %");
             System.out.println("Wetter: " + description);
-            System.out.println(description);
-
+            */
 
         } catch (Exception e) {
             System.out.println("Fehler: " + e.getMessage());
         }
     }
+
+    public double getTemp() {
+        return temp;
+    }
+
+    public double getFeelsLike() {
+        return feelsLike;
+    }
+
+    public int getHumidity() {
+        return humidity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
+
