@@ -33,7 +33,6 @@ public class guiMain {
         panel.add(wetterCommit);
 
 
-
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -38,18 +38,16 @@ public class weatherAPI {
 
             System.out.println("Antwort von OpenWeather:");
             JSONObject json = new JSONObject(response.toString());
-            System.out.println(json);
             System.out.println(json.getString("name"));
 
             JSONObject main = json.getJSONObject("main");
 
-            double temp = main.getDouble("temp");
-            double feelsLike = main.getDouble("feels_like");
-            int humidity = main.getInt("humidity");
-
             JSONArray weatherArray = json.getJSONArray("weather");
             String description = weatherArray.getJSONObject(0).getString("description");
 
+            double temp = main.getDouble("temp");
+            double feelsLike = main.getDouble("feels_like");
+            int humidity = main.getInt("humidity");
 
             System.out.println("Temperatur: " + temp + " °C");
             System.out.println("Gefühlt: " + feelsLike + " °C");
