@@ -52,10 +52,17 @@ public class guiMain {
                 weatherAPI weather = new weatherAPI("48dd2fdd5546a0943cf81b7cf49f5c17", weatherLocation.getText().trim().toLowerCase());
                 weather.getWeather();
 
-                resultLabel.setText("<html>Temperatur: " + weather.getTemp() + " °C<br>" +
-                        "Gefühlt: " + weather.getFeelsLike() + " °C<br>" +
-                        "Luftfeuchtigkeit: " + weather.getHumidity() + " %<br>" +
-                        "Wetter: " + weather.getDescription() + "</html>");
+                resultLabel.setText("<html><div style='padding:10px;'>" +
+                        "<div style='font-size:16px; font-weight:bold; margin-bottom:10px; color:#2c3e50;'>" +
+                        "Wetterdaten:</div>" +
+                        "<div style='margin-left:10px;'>" +
+                        "<div style='margin-bottom:8px;'><b>Temperatur:</b> <span style='color:#e74c3c;'>" + weather.getTemp() + " °C</span></div>" +
+                        "<div style='margin-bottom:8px;'><b>Gefühlt:</b> <span style='color:#e67e22;'>" + weather.getFeelsLike() + " °C</span></div>" +
+                        "<div style='margin-bottom:8px;'><b>Luftfeuchtigkeit:</b> <span style='color:#3498db;'>" + weather.getHumidity() + " %</span></div>" +
+                        "<div><b>Wetter:</b> <span style='color:#27ae60;'>" + weather.getDescription() + "</span></div>" +
+                        "</div></div></html>");
+
+                resultLabel.setPreferredSize(new Dimension(200, 150));
             }
         });
 

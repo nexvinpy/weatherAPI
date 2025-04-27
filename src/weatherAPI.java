@@ -21,7 +21,7 @@ public class weatherAPI {
         this.location = location;
     }
 
-    public void getWeather() {
+    void getWeather() {
         String urlString = "https://api.openweathermap.org/data/2.5/weather?q=" + location +
                 "&appid=" + apiKey + "&units=metric&lang=de";
 
